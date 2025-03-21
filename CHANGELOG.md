@@ -1,6 +1,11 @@
 # Changelog
 
 ## [Unreleased]
+## [0.2.172](https://github.com/psumbera/libc/compare/0.2.171...0.2.172) - 2025-03-21
+
+### Other
+
+- temporarily define O_DIRECT and SIGINFO for Solaris
 
 ## [0.2.171](https://github.com/rust-lang/libc/compare/0.2.170...0.2.171) - 2025-03-11
 
