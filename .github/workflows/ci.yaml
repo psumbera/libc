@@ -284,11 +284,14 @@ jobs:
           copyback: false
           prepare: |
             set -x
-            source <(curl -s https://raw.githubusercontent.com/psumbera/solaris-rust/refs/heads/main/sh.rust-web-install)
-            rustc --version
             uname -a
+            curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- \
+              --profile minimal --default-toolchain nightly -y
           run: |
-            export PATH=$HOME/.rust_solaris/bin:$PATH
+            set -x
+            . "$HOME/.cargo/env"
+            which rustc
+            rustc -Vv
             ./ci/run.sh ${{ matrix.target }}
 
       - name: Test on NetBSD
